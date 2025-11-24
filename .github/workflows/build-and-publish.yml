@@ -17,10 +17,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Install Rust toolchain
+      uses: dtolnay/rust-toolchain@stable
+
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y debhelper cargo rustc dpkg-dev apt-utils
+        sudo apt-get install -y debhelper dpkg-dev apt-utils
 
     - name: Build package
       run: |
