@@ -1,0 +1,38 @@
+name: Build and Publish APT Repository
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y debhelper cargo rustc dpkg-dev apt-utils
+
+    - name: Build package
+      run: |
+        ./build-deb.sh
+
+    - name: Update repository metadata
+      run: |
+        ./update-repo.sh
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: .
+        keep_files: true

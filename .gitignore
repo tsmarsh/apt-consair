@@ -1,0 +1,8 @@
+consair-source/
+*.deb
+*.buildinfo
+*.changes
+debian/.debhelper/
+debian/consair/
+debian/debhelper-build-stamp
+debian/files

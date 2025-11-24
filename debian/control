@@ -1,0 +1,15 @@
+Source: consair
+Section: interpreters
+Priority: optional
+Maintainer: Tom Marsh <tsmarsh@gmail.com>
+Build-Depends: debhelper (>= 11), cargo, rustc
+Standards-Version: 4.1.3
+Homepage: https://github.com/tsmarsh/consair
+
+Package: consair
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A Lisp interpreter written in Rust
+ Consair is a modern Lisp interpreter implementation
+ written in Rust, providing a fast and safe runtime
+ for Lisp programs.
