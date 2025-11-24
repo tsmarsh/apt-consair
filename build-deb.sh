@@ -5,11 +5,11 @@ set -e
 cd "$(dirname "$0")"
 
 # Clone the source if not present
-if [ ! -d "consair-source" ]; then
-    git clone https://github.com/tsmarsh/consair.git consair-source
+if [ ! -d "consair" ]; then
+    git clone https://github.com/tsmarsh/consair.git consair
 fi
 
-cd consair-source
+cd consair
 
 # Copy debian directory
 cp -r ../debian .
