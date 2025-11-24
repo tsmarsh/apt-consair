@@ -3,6 +3,9 @@ set -e
 
 cd "$(dirname "$0")"
 
+# Create directory structure if needed
+mkdir -p dists/stable/main/binary-amd64
+
 # Create Packages file
 cd dists/stable/main/binary-amd64
 dpkg-scanpackages ../../../../pool/main > Packages
